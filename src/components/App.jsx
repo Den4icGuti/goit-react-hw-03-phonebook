@@ -32,6 +32,17 @@ class App extends Component {
       }
     })
   }
+
+  componentDidMount() { 
+    console.log('Монтирование компонента');
+  }
+  componentDidUpdate() { 
+    console.log('Обновление компонента');
+  }
+
+  componentWillUnmount() { 
+    console.log('Размонтирование компонента');
+  }
   
   //==Метод удаления контактов по id==//
 
@@ -55,6 +66,7 @@ class App extends Component {
   };
   
   render() { 
+    console.log('App render');
     const { filter } = this.state 
     const visibleContacts = this.onSerchByName()
     return (
