@@ -1,0 +1,23 @@
+.item {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.nameUser {
+  font-size: 12px;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.phoneNum {
+  font-size: 12px;
+  font-weight: 400;
+  font-style: italic;
+  margin-left: 20px;
+}
+
+.btnDel {
+  margin-left: 20px;
+}
