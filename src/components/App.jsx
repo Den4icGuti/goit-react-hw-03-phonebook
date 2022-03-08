@@ -3,7 +3,7 @@ import Form from './Forma/Forma';
 import UserList from './UserList/UserList';
 import Filter from './Filter/Filter';
 import { nanoid } from "nanoid";
-import data from './data/data.json';
+ import data from './data/data.json';
 
 
 
@@ -33,16 +33,27 @@ class App extends Component {
     })
   }
 
+  //===Монтирование компонента==//
   componentDidMount() { 
-    console.log('Монтирование компонента');
+    const contacts = localStorage.getItem('contacts');
+    const parceContacts = JSON.parse(contacts);
+
+    if (parceContacts) { 
+       this.setState({ contacts: parceContacts });
+    }
   }
-  componentDidUpdate() { 
-    console.log('Обновление компонента');
+
+  //===Обновление компонента componentDidUpdate, сохраняем новый контакт в локальное хранилище===//
+  componentDidUpdate(prevProps, prevState) { 
+    if (this.state.contacts !== prevState.contacts) { 
+     localStorage.setItem('contacts',JSON.stringify(this.state.contacts))
+    }
   }
 
   componentWillUnmount() { 
     console.log('Размонтирование компонента');
   }
+  
   
   //==Метод удаления контактов по id==//
 
@@ -66,14 +77,13 @@ class App extends Component {
   };
   
   render() { 
-    console.log('App render');
     const { filter } = this.state 
     const visibleContacts = this.onSerchByName()
     return (
       <div>
         <Form
           onSubmit={this.addContact} />
-        <Filter
+       <Filter
           title="Contacts"
           value={filter}
           onChange={this.onChangeFilter}
