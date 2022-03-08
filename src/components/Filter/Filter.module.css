@@ -1,0 +1,17 @@
+.BoxFilter {
+  width: 250px;
+  height: auto;
+  background-color: aliceblue;
+  padding: 15px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.Filter {
+  display: flex;
+  flex-direction: column;
+  padding-top: 8px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
+}
