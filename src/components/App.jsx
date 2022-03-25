@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Form from './Forma/Forma';
+import Form from './Form/Form';
 import UserList from './UserList/UserList';
 import Filter from './Filter/Filter';
 import { nanoid } from "nanoid";
@@ -35,12 +35,13 @@ class App extends Component {
 
   //===Монтирование компонента==//
   componentDidMount() { 
-    const contacts = localStorage.getItem('contacts');
+    const contacts = localStorage.getItem("contacts");
     const parceContacts = JSON.parse(contacts);
 
     if (parceContacts) { 
        this.setState({ contacts: parceContacts });
     }
+    return parceContacts;
   }
 
   //===Обновление компонента componentDidUpdate, сохраняем новый контакт в локальное хранилище===//
@@ -77,8 +78,8 @@ class App extends Component {
   };
   
   render() { 
-    const { filter } = this.state 
-    const visibleContacts = this.onSerchByName()
+    const { filter } = this.state;
+    const visibleContacts = this.onSerchByName();
     return (
       <div>
         <Form

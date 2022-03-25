@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import styles from './Forma.module.css';
+import styles from './Form.module.css';
 
 
 class Form extends Component { 

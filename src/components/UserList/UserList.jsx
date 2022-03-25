@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import ListItem from "components/ListItem/ListItem";
 import styles from './UserList.module.css';
 
-const userList = ({ item, deleteContact }) => {
+const UserList = ({ item, deleteContact }) => {
   return (
     <div className={styles.ListUsers}>
       <ul className={styles.list}>
@@ -21,10 +21,10 @@ const userList = ({ item, deleteContact }) => {
   );
 };
 
-userList.propTypes = {
+UserList.propTypes = {
   name: PropTypes.string,
   number:PropTypes.string
 }
 
-export default userList;
+export default UserList;
 
